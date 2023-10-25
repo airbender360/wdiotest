@@ -2,11 +2,7 @@ import { Given, When, Then } from '@wdio/cucumber-framework';
 import { expect, $ } from '@wdio/globals'
 import { browser } from '@wdio/globals'
 
-import LoginPage from '../pageobjects/login.page';
-
-const pages = {
-    login: LoginPage
-}
+import LoginPage from '../pageobjects/signin.page';
 
 Given(/^El usuario ingresa a la pagina de registro$/, async () => {
     await LoginPage.open()

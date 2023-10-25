@@ -14,7 +14,7 @@ export class ProductVerifyTask extends ProductVerifyPage {
             console.log(await element.getText())
         });
 
-        assert.equal(parrafos.lenght, 5);
+        assert.equal(parrafos.length, 5);
         return true;
     }
 }

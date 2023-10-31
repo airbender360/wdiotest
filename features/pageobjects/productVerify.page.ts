@@ -17,7 +17,7 @@ export class ProductVerifyPage extends Page {
     public get amazonsChoiceAmazon(){
         return $('span.ac-badge-text-primary');
     }
-
+    
     public get amazonsChoiceChoice(){
         return $('span.ac-badge-text-secondary');
     }
@@ -26,19 +26,16 @@ export class ProductVerifyPage extends Page {
         return $('(//*[@class="a-size-base po-break-word"])[3]');
     }
 
-    public get marca(){
+    public get brand(){
         return $('(//*[@class="a-size-base po-break-word"])[2]');
     }
-    public get precio(){
+    public get price(){
         return $('#corePrice_feature_div'); // apunta al precio directo #corePrice_feature_div .a-offscreen
     }
 
     public get total(){
         return $('.a-size-medium.a-color-base._p13n-desktop-sims-fbt_fbt-desktop_total-amount__wLVdU')
     }
-
-    
-//locators 
 
 
 }

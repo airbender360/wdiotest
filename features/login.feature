@@ -21,4 +21,7 @@ Then Se crea la cuenta
 @verifytest
 Scenario: El usuario verifica el producto
 Given Se abre la pagina
+When Se hace una pausa para cargar los elementos
 Then Se verifican los 5 parrafos
+Then Se verifica la ram
+Then Se verifica la marca

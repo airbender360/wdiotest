@@ -14,7 +14,7 @@ Given(/^El usuario ingresa a la pagina de registro$/, async () => {
 When(/^El usuario registra los datos$/, async () => {
     await browser.pause(2000)
     await LoginPage.inputYourName.setValue("Santiago Sánchez")
-    await LoginPage.inputEmail.setValue("santy.896dsad@gmail.com")
+    await LoginPage.inputEmail.setValue("santy.896dasd@gmail.com")
     await LoginPage.inputPassword.setValue("santysantysanty05")
     await LoginPage.inputPasswordCheck.setValue("santysantysanty05")
     await browser.pause(4000)

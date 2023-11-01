@@ -1,4 +1,4 @@
-Feature: The Internet Guinea Pig Website
+Feature: The Internet
 
 @login
   Scenario Outline: As a user, I can log into the secure area
@@ -22,6 +22,13 @@ Then Se crea la cuenta
 Scenario: El usuario verifica el producto
 Given Se abre la pagina
 When Se hace una pausa para cargar los elementos
-Then Se verifican los 5 parrafos
-Then Se verifica la ram
-Then Se verifica la marca
+Then Se verifican los "5" parrafos
+Then Se verifica la ram "12.00"
+Then Se verifica que sea opcion amazon
+Then Se verifica la marca "Samsung"
+Then El total debe ser el resultado de la suma del precio + deposito de importacion
+
+@debug
+Scenario: Prueba API
+Given El usuario consulta la informacion
+When El usuario crea un post

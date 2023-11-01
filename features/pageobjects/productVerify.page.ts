@@ -1,6 +1,7 @@
 import { $ } from '@wdio/globals'
 import Page from './page';
 import { browser } from '@wdio/globals'
+import axios from 'axios';
 
 export class ProductVerifyPage extends Page {
 
@@ -30,14 +31,50 @@ export class ProductVerifyPage extends Page {
         return $('(//*[@class="a-size-base po-break-word"])[2]');
     }
     public get price(){
-        return $('#corePrice_feature_div'); // apunta al precio directo #corePrice_feature_div .a-offscreen
+        return $('//*[@id="corePrice_feature_div"]/div/div/span[1]/span[1]'); // apunta al precio directo #corePrice_feature_div .a-offscreen xpath> //*[@id="corePrice_feature_div"]/div/div/span[1]/span[1] no sirvió: #corePrice_feature_div
     }
 
     public get total(){
-        return $('.a-size-medium.a-color-base._p13n-desktop-sims-fbt_fbt-desktop_total-amount__wLVdU')
+        return $('.a-size-medium.a-color-base._p13n-desktop-sims-fbt_fbt-desktop_total-amount__wLVdU');
     }
 
+    public get importFee(){
+        return $('script+span.a-size-base.a-color-secondary');
+    }
 
+    public async getResults():Promise<any>{
+        let url = "https://jsonplaceholder.typicode.com/posts/"
+        let response = await axios.get(url)
+            .catch((error: {message:any; response: any; }) => {
+                throw new Error(`Error getting the information:- ${error.message}\n`)
+            })
+        return response;
+    }
+
+    public async getResults1():Promise<any>{
+        let url = "https://jsonplaceholder.typicode.com/posts"
+        
+        let response = await axios.get(url)
+        .catch((error: {message:any; response:any; }) => {
+            throw new Error(`Error getting the information:- ${error.message}\n`)
+        })
+
+        return response;
+    }
+
+    public async postResult():Promise<any>{
+        let url = ""
+        const payload:any = {
+            title: "",
+            body: ""
+        }
+        let response = await axios.post(url, payload)
+            .catch((error: {message:any; response: any}) => {
+                throw new Error(`Error posting the information:- ${error.message}\n`)
+            })
+        return response;
+    }
+        
 }
 
 export default new ProductVerifyPage();

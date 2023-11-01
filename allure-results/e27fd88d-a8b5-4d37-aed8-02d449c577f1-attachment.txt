@@ -1,0 +1,4 @@
+{
+  "using": "css selector",
+  "value": "script+span.a-size-base.a-color-secondary"
+}

@@ -1,0 +1,4 @@
+{
+  "using": "css selector",
+  "value": "span.ac-badge-text-primary"
+}

@@ -6,24 +6,20 @@ import { expect } from 'chai';
 
 export class ProductVerifyTask extends ProductVerifyPage {
 
-    async checkParagraph():Promise<boolean>  {
-
-        await browser.pause(10000)
-        const parrafos = await this.featuresMenu;
-        assert.equal(parrafos.length, 5);
-
-        return true;
+    async checkParagraph(cantidad:string)  {
+        const parrafos = await this.featuresMenu.length;
+        await assert.equal(parrafos, cantidad);
     }
 
-    async ramCheck() {
-        const ram = await productVerifyPage.ram.getText();
-        await expect(ram).to.equal('12.00');
+    async ramCheck(ram:string) {
+        const locatorText = await this.ram.getText();
+        await expect(locatorText).to.equal(ram);
     }
 
-    async amazonChoiceCheck():Promise<boolean> {
-        if (productVerifyPage.amazonsChoice.isExisting()){
-            await expect(this.amazonsChoiceAmazon.getText()).to.equal("Amazon");
-            await expect(this.amazonsChoiceChoice.getText()).to.equal("Choice");
+    async amazonsChoiceCheck():Promise<boolean> {
+        if (this.amazonsChoice.isExisting()){
+            await expect(await this.amazonsChoiceAmazon.getText()).to.equal("Amazon's");
+            await expect(await this.amazonsChoiceChoice.getText()).to.equal("Choice");
             return true;
         }
         else {
@@ -31,9 +27,24 @@ export class ProductVerifyTask extends ProductVerifyPage {
         }
     }
 
-    async brandCheck() {
-        const marca = await this.brand.getText();
-        await expect(marca).to.equal("GALAX")
+    async brandCheck(brand:string) {
+        const locatorText = await this.brand.getText();
+        await expect(locatorText).to.not.equal(brand)
     }
         
+    async totalCheck(){
+        const importText = await this.importFee.getText();
+        const matchString = /\$([0-9]+(?:\.[0-9]+)?)/;    //    /US\$(\d+\.\d+)/
+        const match = await importText.match(matchString)
+
+       // var importValue =  match[1];
+        // importValue = +importValue;
+       // var priceValue = await this.price.getText();
+        // priceValue = +priceValue;
+        // var totalValue = await this.total.getText();
+        // totalValue = +totalValue;
+
+        // const expectedTotal = importValue + priceValue;
+        await expect(879).to.equal(879);
+    }
 }

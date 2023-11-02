@@ -1,4 +1,0 @@
-{
-  "using": "css selector",
-  "value": ".a-size-medium.a-color-base._p13n-desktop-sims-fbt_fbt-desktop_total-amount__wLVdU"
-}

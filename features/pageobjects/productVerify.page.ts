@@ -5,8 +5,8 @@ import axios from 'axios';
 
 export class ProductVerifyPage extends Page {
 
-    public open () {
-        return super.open();
+    public open (ref:string) {
+        return super.open(ref);
     }
 
     public get featuresMenu(){return browser.$$('//*[@id="feature-bullets"]/ul/li')} // #feature-bullets ul li
@@ -41,40 +41,6 @@ export class ProductVerifyPage extends Page {
     public get importFee(){
         return $('script+span.a-size-base.a-color-secondary');
     }
-
-    public async getResults():Promise<any>{
-        let url = "https://jsonplaceholder.typicode.com/posts/"
-        let response = await axios.get(url)
-            .catch((error: {message:any; response: any; }) => {
-                throw new Error(`Error getting the information:- ${error.message}\n`)
-            })
-        return response;
-    }
-
-    public async getResults1():Promise<any>{
-        let url = "https://jsonplaceholder.typicode.com/posts"
-        
-        let response = await axios.get(url)
-        .catch((error: {message:any; response:any; }) => {
-            throw new Error(`Error getting the information:- ${error.message}\n`)
-        })
-
-        return response;
-    }
-
-    public async postResult():Promise<any>{
-        let url = ""
-        const payload:any = {
-            title: "",
-            body: ""
-        }
-        let response = await axios.post(url, payload)
-            .catch((error: {message:any; response: any}) => {
-                throw new Error(`Error posting the information:- ${error.message}\n`)
-            })
-        return response;
-    }
-        
 }
 
 export default new ProductVerifyPage();

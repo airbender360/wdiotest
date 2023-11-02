@@ -1,26 +1,23 @@
-Feature: The Internet
+Feature: Group 2 requirements
 
-@login
-  Scenario Outline: As a user, I can log into the secure area
-
-    Given I am on the login page
-    When I login with <username> and <password>
-    Then I should see a flash message saying <message>
-    
-    Examples:
-      | username | password             | message                        |
-      | tomsmith | SuperSecretPassword! | You logged into a secure area! |
-      | foobar   | barfoo               | Your username is invalid!      |
-
-@test
+@req1
 Scenario: El usuario crea una cuenta de amazon
-Given El usuario ingresa a la pagina de registro
-When El usuario registra los datos
-Then Se crea la cuenta
+Given El usuario ingresa a la pagina "1" y hace click en empezar aqui
+When El usuario ingresa sus datos "testytesty" "test311020234@gmail.com" "Test31102023*/3"
+Then Se verifica que el correo no se encuentre registrado en la plataforma
+Then Se verifica que la contraseña "Test31102023*/3" tenga al menos 12 caracteres
+Then Se verifica que la contraseña "Test31102023*/3" tenga al menos 1 caracteres especiales
+Then Se verifica el OTP: "1234" para crear la cuenta
 
-@verifytest
+@req2
+Scenario: El usuario inicia sesion
+Given El usuario ingresa a la pagina "2" y hace click en iniciar sesion
+When Ingresa los datos de inicio "test311020234@gmail.com" "Test31102023*/3"
+Then 
+
+@req3
 Scenario: El usuario verifica el producto
-Given Se abre la pagina
+Given Se abre la pagina del producto "3"
 When Se hace una pausa para cargar los elementos
 Then Se verifican los "5" parrafos
 Then Se verifica la ram "12.00"

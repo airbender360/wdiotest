@@ -1,12 +1,9 @@
-import { assert } from "chai";
-import productVerifyPage, { ProductVerifyPage } from "../pageobjects/productVerify.page";
-import { browser } from '@wdio/globals'
-import { expect } from 'chai';
-
+import { assert, expect } from "chai";
+import { ProductVerifyPage } from "../pageobjects/productVerify.page";
 
 export class ProductVerifyTask extends ProductVerifyPage {
 
-    async checkParagraph(cantidad:string)  {
+    async checkParagraph(cantidad:number)  {
         const parrafos = await this.featuresMenu.length;
         await assert.equal(parrafos, cantidad);
     }

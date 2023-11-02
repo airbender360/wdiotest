@@ -1,4 +1,0 @@
-{
-  "using": "xpath",
-  "value": "//*[@id=\"corePrice_feature_div\"]/div/div/span[1]/span[1]"
-}

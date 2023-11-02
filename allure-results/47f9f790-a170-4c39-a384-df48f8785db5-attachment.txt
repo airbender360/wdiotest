@@ -1,4 +1,0 @@
-{
-  "using": "xpath",
-  "value": "(//*[@class=\"a-size-base po-break-word\"])[2]"
-}

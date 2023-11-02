@@ -98,13 +98,13 @@ export const config: Options.Testrunner = {
     // Test reporter for stdout.
     // The only one supported by default is 'dot'
     // see also: https://webdriver.io/docs/dot-reporter
-    reporters: ['spec', '@wdio/allure-reporter'],
+    reporters: ['spec'], // '@wdio/allure-reporter'
 
     //
     // If you are using Cucumber you need to specify the location of your step definitions.
     cucumberOpts: {
         // <string[]> (file/dir) require files before executing features
-        require: ['./features/step-definitions/steps.ts', './features/step-definitions/productVerifySteps.ts'],
+        require: ['./features/step-definitions/signIn.steps.ts', './features/step-definitions/productVerify.steps.ts', './features/step-definitions/createAccount.steps.ts'],
         // <boolean> show full backtrace for errors
         backtrace: false,
         // <string[]> ("extension:module") require files with the given EXTENSION after requiring MODULE (repeatable)
@@ -120,27 +120,27 @@ export const config: Options.Testrunner = {
         // <boolean> fail if there are any undefined or pending steps
         strict: false,
         // <string> (expression) only execute the features or scenarios with tags matching the expression
-        tags: '@verifytest',
+        tags: '@req1',
         // <number> timeout for step definitions
         timeout: 60000,
         // <boolean> Enable this config to treat undefined definitions as warnings.
         ignoreUndefinedDefinitions: true
     },
     
-    afterTest(test, context, { error, result, duration, passed, retries }) {
-        if (error) {
-          browser.takeScreenshot(); // Captura una captura de pantalla en caso de error
-        }
-      },
+      //afterTest(test, context, { error, result, duration, passed, retries }) {
+      //  if (error) {
+      //    browser.takeScreenshot(); // Captura una captura de pantalla en caso de error
+      //  }
+      //},
     
-      onComplete() {
-        // Genera informes Allure después de la ejecución
-        const allure = require('allure-commandline');
-        const generation = allure(['generate', 'allure-results']);
-        generation.on('exit', function (exitCode: any) {
-          console.log('Se han generado los informes Allure con éxito');
-        });
-      },
+      //onComplete() {
+      //  // Genera informes Allure después de la ejecución
+      //  const allure = require('allure-commandline');
+      //  const generation = allure(['generate', 'allure-results']);
+      //  generation.on('exit', function (exitCode: any) {
+      //    console.log('Se han generado los informes Allure con éxito');
+      //  });
+      //},
       
     //
     // =====

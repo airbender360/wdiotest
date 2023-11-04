@@ -4,15 +4,15 @@ Feature: Group 2 requirements
 Scenario: El usuario crea una cuenta de amazon
 Given El usuario ingresa a la pagina "1" y hace click en empezar aqui
 When El usuario ingresa sus datos "testytesty" "test311020234@gmail.com" "Test31102023*/3"
-Then Se verifica que el correo no se encuentre registrado en la plataforma
-Then Se verifica que la contraseña "Test31102023*/3" tenga al menos 12 caracteres
-Then Se verifica que la contraseña "Test31102023*/3" tenga al menos 1 caracteres especiales
+And Se verifica que el correo electrónico no se encuentre registrado
+And Se verifica que la contraseña "Test31102023*/3" tenga al menos 12 caracteres
+And Se verifica que la contraseña "Test31102023*/3" tenga al menos 1 caracteres especiales
 Then Se verifica el OTP: "1234" para crear la cuenta
 
 @req2
 Scenario: El usuario inicia sesion
 Given El usuario ingresa a la pagina "2" y hace click en iniciar sesion
-When Ingresa los datos de inicio "test311020234@gmail.com" "Test31102023*/3"
+When Ingresa los datos de inicio "test31102023@gmail.com" "Test31102023*/3"
 Then 
 
 @req3

@@ -14,7 +14,7 @@ export class ProductVerifyTask extends ProductVerifyPage {
     }
 
     async amazonsChoiceCheck():Promise<boolean> {
-        if (this.amazonsChoice.isExisting()){
+        if ( await this.amazonsChoice.isExisting()){
             await expect(await this.amazonsChoiceAmazon.getText()).to.equal("Amazon's");
             await expect(await this.amazonsChoiceChoice.getText()).to.equal("Choice");
             return true;

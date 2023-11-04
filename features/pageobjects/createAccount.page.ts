@@ -20,7 +20,7 @@ export class CreateAccountPage extends Page {
     }
 
     public get registeredEmailWarning(){
-        return $('register-mase-inlineerror');
+        return $('#register-mase-inlineerror');   // #register-mase-inlineerror i+ .a-alert-content
     }
     
     public get inputPassword() {
@@ -34,7 +34,7 @@ export class CreateAccountPage extends Page {
     public get continueButton() {
         return $('//input[@id="continue"]')
     }
-
+    
     public get inputEnterOTP() {
         return $('//input[@name="code"]') // //div[@id="cvf-input-code-container"]
     }   

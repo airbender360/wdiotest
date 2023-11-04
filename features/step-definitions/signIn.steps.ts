@@ -3,7 +3,7 @@ import { SignInTasks } from '../Tasks/signIn.tasks';
 
 const signInTasks = new SignInTasks();
 
-Given("El usuario ingresa a la pagina {string} y hace click en iniciar sesion", async (ref:string) => {
+Given("El usuario ingresa a la pagina {int} y hace click en iniciar sesion", async (ref:number) => {
     await signInTasks.open(ref)
     await signInTasks.signInClick();
 });

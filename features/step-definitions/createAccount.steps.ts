@@ -4,7 +4,7 @@ import { CreateAccountTasks } from '../Tasks/createAccount.tasks';
 
 const createAccountTasks = new CreateAccountTasks();
 
-Given("El usuario ingresa a la pagina {string} y hace click en empezar aqui", async (ref:string) => {
+Given("El usuario ingresa a la pagina {int} y hace click en empezar aqui", async (ref:number) => {
     await createAccountTasks.open(ref);
     await browser.pause(500);
     await createAccountTasks.startHereClick();

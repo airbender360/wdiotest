@@ -3,7 +3,7 @@ import Page from './page';
 
 export class SignInPage extends Page {
 
-    public open (ref:string) {
+    public open (ref:number) {
         return super.open(ref);
     }
 

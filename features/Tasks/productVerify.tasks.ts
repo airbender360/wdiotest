@@ -1,20 +1,47 @@
-import { assert } from "chai";
 import { ProductVerifyPage } from "../pageobjects/productVerify.page";
-import { browser } from '@wdio/globals'
+import { Assertions } from "../questions/assertions";
 
+const assertions = new Assertions();
 
 export class ProductVerifyTask extends ProductVerifyPage {
+    
+    async checkParagraph(quantity:number){
+        const locatorLength = await this.featuresMenu.length;
+        await assertions.toEqual(0,locatorLength,quantity);
+    }
 
-       async checkParagraph():Promise<boolean>  {
+    async ramCheck(ram:string){
+        const locatorText = await this.ram.getText();
+        await assertions.toEqual(0,locatorText,ram);
+    }
 
-        await browser.pause(10000)
-        const parrafos = await this.featuresMenu;
+    async amazonsChoiceCheck(part1:string,part2:string){
+        const locatorText = await this.amazonsChoice.getText();
+        await assertions.toEqual(0,locatorText,part1 + "\n" + part2);
+    }
 
-        parrafos.forEach(async (element: any) => {
-            console.log(await element.getText())
-        });
+    async brandCheck(brand:string) {
+        const locatorText = await this.brand.getText();
+        await assertions.toEqual(0,locatorText,brand);
+    }
+        
+    public getValue(locatorText:string){
+        const regular = /\D+/;
+        const valuesArray = locatorText.split(regular);
+        const value = +(valuesArray[1] + "." + valuesArray[2]);
 
-        assert.equal(parrafos.length, 5);
-        return true;
+        return value;
+    }
+
+    async totalCheck(){
+        const feeText = await this.importFee.getText();
+        const fee = this.getValue(feeText);
+        const priceText = await this.price.getText();
+        const price = this.getValue(priceText);
+        await this.detailsButton.click();
+        const totalText = await this.total.getText();
+        const total = this.getValue(totalText);
+
+        await assertions.toEqual(0,fee+price,total);
     }
 }

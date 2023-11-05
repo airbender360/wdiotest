@@ -1,43 +1,23 @@
-import { $ } from '@wdio/globals'
+import { $ } from '@wdio/globals';
 import Page from './page';
 
-class LoginPage extends Page {
+export class SignInPage extends Page {
 
-    public get startHere() {
-        return $('(// * [contains (text (), "Start here")])[2]');
+    public open (ref:number) {
+        return super.open(ref);
     }
 
-    public get inputYourName() {
-        return $('#ap_customer_name');
-    }
+    public get signIn(){return $('[data-nav-ref="nav_custrec_signin"]')};
 
-    public get inputEmail() {
-        return $('#ap_email');
-    }
+    public get emailInput(){return $('#ap_email')};
 
-    public get inputPassword() {
-        return $('#ap_password');
-    }
+    public get continueBtn(){return $('input#continue')};
 
-    public get inputPasswordCheck() {
-        return $('#ap_password_check');
-    }
-    
-    public get continueButton() {
-        return $('//input[@id="continue"]')
-    }
+    public get passwordInput(){return $('#ap_password')};
 
-    public get inputEnterOTP() {
-        return $('//input[@name="code"]') // //div[@id="cvf-input-code-container"]
-    }   
+    public get signInBtn(){return $('#signInSubmit')};
 
-    public get createAccountButton() {
-        return $('//input [contains(@aria-labelledby, "cvf-submit-otp-button-announce")]')
-    }
-
-    public open () {
-        return super.open();
-    }
+    public get helloUser(){return $('#nav-link-accountList-nav-line-1')};
 }
 
-export default new LoginPage();
+export default new SignInPage();

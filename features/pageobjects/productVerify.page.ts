@@ -11,10 +11,6 @@ export class ProductVerifyPage extends Page {
     public get featuresMenu(){return browser.$$('//*[@id="feature-bullets"]/ul/li')} // #feature-bullets ul li
     
     public get amazonsChoice(){return $('span[class="a-size-small aok-float-left ac-badge-rectangle"]')}; // #acBadge_feature_div span span.a-size-small
-
-    // public get amazonsChoiceAmazons(){return $('span.ac-badge-text-primary')};
-    
-    // public get amazonsChoiceChoice(){return $('span.ac-badge-text-secondary')};
     
     public get ram(){return $('(//*[@class="a-size-base po-break-word"])[3]')};
 

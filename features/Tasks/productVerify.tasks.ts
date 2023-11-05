@@ -1,7 +1,5 @@
-import { Assertion, assert, expect } from "chai";
 import { ProductVerifyPage } from "../pageobjects/productVerify.page";
 import { Assertions } from "../questions/assertions";
-import { browser } from '@wdio/globals';
 
 const assertions = new Assertions();
 
@@ -43,7 +41,7 @@ export class ProductVerifyTask extends ProductVerifyPage {
         await this.detailsButton.click();
         const totalText = await this.total.getText();
         const total = this.getValue(totalText);
-        
+
         await assertions.toEqual(0,fee+price,total)
     }
 }

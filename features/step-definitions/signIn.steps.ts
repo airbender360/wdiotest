@@ -12,3 +12,7 @@ When ("Ingresa los datos de inicio {string} {string}", async (email:string, pass
     await signInTasks.signInDataInsert(email,password);
 });
 
+
+Then ("Se valida el inicio de sesion exitoso con el mensaje Hola, {string}", async (user:string) => {
+    await signInTasks.signInCheck(user);
+});

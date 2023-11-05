@@ -12,19 +12,19 @@ When(/^Se hace una pausa para cargar los elementos$/, async () => {
     await browser.pause(3000);
 });
 
-When("Se verifican los {int} parrafos", async (quantity:number) => {
+When("La descripcion del producto debe estar compuesta por {int} parrafos", async (quantity:number) => {
     await productVerifyTask.checkParagraph(quantity);
 });
 
-When("Se verifica la ram {string}", async (ram:string) => {
+When("La tarjeta grafica debe tener {string} GB de RAM", async (ram:string) => {
     await productVerifyTask.ramCheck(ram);
 });
 
-When("Se verifica que sea {string}{string}", async (part1:string, part2:string) => {
+When("El producto debe estar marcado como {string}{string}", async (part1:string, part2:string) => {
     await productVerifyTask.amazonsChoiceCheck(part1,part2);
 });
 
-When("Se verifica la marca {string}", async (brand:string) => {
+When("La marca del producto debe ser {string}", async (brand:string) => {
     await productVerifyTask.brandCheck(brand);
 });
 

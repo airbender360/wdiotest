@@ -14,15 +14,15 @@ When("El usuario ingresa sus datos {string} {string} {string}" , async (name:str
     await createAccountTasks.accountDataInsert(name,email,password);
 }); 
 
-When(/^Se verifica que el correo electronico no se encuentre registrado$/, async () => {
+When(/^Se verifica que el correo electrónico no este registrado en la plataforma$/, async () => {
     await createAccountTasks.unregisteredEmailCheck();
 }); 
 
-When("Se verifica que la contraseña {string} tenga al menos {int} caracteres", async (password:string, length:number) => {
+When("La contraseña {string} debe tener al menos {int} caracteres", async (password:string, length:number) => {
     await createAccountTasks.passwordLengthCheck(password,length);
 }); 
 
-When("Se verifica que la contraseña {string} tenga al menos {int} caracteres especiales", async (password:string,quantity:number) => {
+When("La contraseña {string} debe tener al menos {int} caracter especial", async (password:string,quantity:number) => {
     await createAccountTasks.passwordSpecialCharsCheck(password,quantity);
 }); 
 

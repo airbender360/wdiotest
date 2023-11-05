@@ -9,27 +9,26 @@ Given("Se abre la pagina {int} del producto", async (ref:number) => {
 });
 
 When(/^Se hace una pausa para cargar los elementos$/, async () => {
-    await browser.pause(2000);
+    await browser.pause(3000);
 });
 
-Then("Se verifican los {string} parrafos", async (quantity:number) => {
-    await browser.pause(1000);
+When("Se verifican los {int} parrafos", async (quantity:number) => {
     await productVerifyTask.checkParagraph(quantity);
 });
 
-Then("Se verifica la ram {string}", async (ram:string) => {
+When("Se verifica la ram {string}", async (ram:string) => {
     await productVerifyTask.ramCheck(ram);
 });
 
-Then (/^Se verifica que sea opcion amazon$/, async () => {
-    await productVerifyTask.amazonsChoiceCheck();
+When("Se verifica que sea {string}{string}", async (part1:string, part2:string) => {
+    await productVerifyTask.amazonsChoiceCheck(part1,part2);
 });
 
-Then("Se verifica la marca {string}", async (brand:string) => {
+When("Se verifica la marca {string}", async (brand:string) => {
     await productVerifyTask.brandCheck(brand);
 });
 
-Then ("El total debe ser el resultado de la suma del precio + deposito de importacion", async () => {
+Then(/^El total debe ser el resultado de la suma del precio mas el deposito de importacion$/, async () => {
     await productVerifyTask.totalCheck();
 });
 

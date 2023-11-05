@@ -1,47 +1,49 @@
-import { assert, expect } from "chai";
+import { Assertion, assert, expect } from "chai";
 import { ProductVerifyPage } from "../pageobjects/productVerify.page";
+import { Assertions } from "../questions/assertions";
+import { browser } from '@wdio/globals';
+
+const assertions = new Assertions();
 
 export class ProductVerifyTask extends ProductVerifyPage {
-
-    async checkParagraph(cantidad:number)  {
-        const parrafos = await this.featuresMenu.length;
-        await assert.equal(parrafos, cantidad);
+    
+    async checkParagraph(quantity:number){
+        const locatorLength = await this.featuresMenu.length;
+        await assertions.toEqual(0,locatorLength,quantity);
     }
 
-    async ramCheck(ram:string) {
+    async ramCheck(ram:string){
         const locatorText = await this.ram.getText();
-        await expect(locatorText).to.equal(ram);
+        await assertions.toEqual(0,locatorText,ram);
     }
 
-    async amazonsChoiceCheck():Promise<boolean> {
-        if ( await this.amazonsChoice.isExisting()){
-            await expect(await this.amazonsChoiceAmazon.getText()).to.equal("Amazon's");
-            await expect(await this.amazonsChoiceChoice.getText()).to.equal("Choice");
-            return true;
-        }
-        else {
-            return false;
-        }
+    async amazonsChoiceCheck(part1:string,part2:string){
+        const locatorText = await this.amazonsChoice.getText();
+        await assertions.toEqual(0,locatorText,part1 + "\n" + part2);
     }
 
     async brandCheck(brand:string) {
         const locatorText = await this.brand.getText();
-        await expect(locatorText).to.not.equal(brand)
+        await assertions.toEqual(0,locatorText,brand);
     }
         
+    public getValue(locatorText:string){
+        const regular = /\D+/;
+        const valuesArray = locatorText.split(regular);
+        const value = +(valuesArray[1] + "." + valuesArray[2]);
+
+        return value;
+    }
+
     async totalCheck(){
-        const importText = await this.importFee.getText();
-        const matchString = /\$([0-9]+(?:\.[0-9]+)?)/;    //    /US\$(\d+\.\d+)/
-        const match = await importText.match(matchString)
-
-       // var importValue =  match[1];
-        // importValue = +importValue;
-       // var priceValue = await this.price.getText();
-        // priceValue = +priceValue;
-        // var totalValue = await this.total.getText();
-        // totalValue = +totalValue;
-
-        // const expectedTotal = importValue + priceValue;
-        await expect(879).to.equal(879);
+        const feeText = await this.importFee.getText();
+        const fee = this.getValue(feeText);
+        const priceText = await this.price.getText();
+        const price = this.getValue(priceText);
+        await this.detailsButton.click();
+        const totalText = await this.total.getText();
+        const total = this.getValue(totalText);
+        
+        await assertions.toEqual(0,fee+price,total)
     }
 }

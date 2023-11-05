@@ -14,7 +14,7 @@ When("El usuario ingresa sus datos {string} {string} {string}" , async (name:str
     await createAccountTasks.accountDataInsert(name,email,password);
 }); 
 
-When(/^Se verifica que el correo electrónico no se encuentre registrado$/, async () => {
+When(/^Se verifica que el correo electronico no se encuentre registrado$/, async () => {
     await createAccountTasks.unregisteredEmailCheck();
 }); 
 

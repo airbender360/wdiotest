@@ -1,7 +1,6 @@
 import { CreateAccountPage } from "../pageobjects/createAccount.page";
 import { browser } from '@wdio/globals'
 import { Assertions } from "../questions/assertions";
-import { isExisting } from "webdriverio/build/commands/element";
 
 const assertions = new Assertions();
 

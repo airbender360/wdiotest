@@ -1,8 +1,8 @@
-import axios from 'axios'
+import axios from 'axios';
 
 export class ApiTasks {
 
-    public async getResults():Promise<any>{
+    public async get():Promise<any>{
         let url = "https://jsonplaceholder.typicode.com/posts/"
         let response = await axios.get(url)
             .catch((error: {message:any; response: any; }) => {
@@ -11,11 +11,12 @@ export class ApiTasks {
         return response;
     }
 
-    public async postResult():Promise<any>{
+    public async post():Promise<any>{
         let url = "https://jsonplaceholder.typicode.com/posts/"
         const payload:any = {
-            title: "",
-            body: ""
+            author: "hsum",
+            title: "test",
+            body: "this is a test",
         }
         let response = await axios.post(url, payload)
             .catch((error: {message:any; response: any}) => {

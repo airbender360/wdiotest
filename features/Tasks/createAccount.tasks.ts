@@ -1,5 +1,5 @@
 import { CreateAccountPage } from "../pageobjects/createAccount.page";
-import { browser } from '@wdio/globals'
+import { browser } from '@wdio/globals';
 import { Assertions } from "../questions/assertions";
 
 const assertions = new Assertions();
@@ -28,7 +28,7 @@ export class CreateAccountTasks extends CreateAccountPage {
     }
 
     async passwordLengthCheck(password:string,length:number){
-        const passwordLength = password.length
+        const passwordLength = password.length;
         var check = null;
 
         passwordLength >= length ? check = true : check = false;
@@ -46,9 +46,9 @@ export class CreateAccountTasks extends CreateAccountPage {
     }
 
     async otpWaitAndContinue(otp:string){
-        await browser.pause(25000)
-        await this.inputEnterOTP.setValue(otp)
-        await browser.pause(2000)
-        await this.createAccountButton.click()
+        await browser.pause(25000);
+        await this.inputEnterOTP.setValue(otp);
+        await browser.pause(2000);
+        await this.createAccountButton.click();
     }
 }

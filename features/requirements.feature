@@ -21,11 +21,11 @@ Given Se abre la pagina 3 del producto
 When Se hace una pausa para cargar los elementos
 And La descripcion del producto debe estar compuesta por 5 parrafos
 And La tarjeta grafica debe tener "12.00" GB de RAM
-# And El producto debe estar marcado como "Amazon's""Choice"
-# And La marca del producto debe ser "Samsung"
+#And El producto debe estar marcado como "Amazon's""Choice"
+#And La marca del producto debe ser "Samsung"
 Then El total debe ser el resultado de la suma del precio mas el deposito de importacion
 
-@debug
+@api
 Scenario: Prueba API
 Given El usuario consulta la informacion
 When El usuario crea un post

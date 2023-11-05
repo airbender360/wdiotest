@@ -42,6 +42,6 @@ export class ProductVerifyTask extends ProductVerifyPage {
         const totalText = await this.total.getText();
         const total = this.getValue(totalText);
 
-        await assertions.toEqual(0,fee+price,total)
+        await assertions.toEqual(0,fee+price,total);
     }
 }

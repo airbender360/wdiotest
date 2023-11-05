@@ -1,5 +1,5 @@
 import { Given, When, Then } from '@wdio/cucumber-framework';
-import { browser } from '@wdio/globals'
+import { browser } from '@wdio/globals';
 import { CreateAccountTasks } from '../Tasks/createAccount.tasks';
 
 const createAccountTasks = new CreateAccountTasks();

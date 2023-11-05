@@ -1,5 +1,5 @@
 import { Given, When, Then } from '@wdio/cucumber-framework';
-import { browser } from '@wdio/globals'
+import { browser } from '@wdio/globals';
 import { ProductVerifyTask } from '../Tasks/productVerify.tasks';
 
 const productVerifyTask = new ProductVerifyTask();

@@ -5,7 +5,7 @@ import { ProductVerifyTask } from '../Tasks/productVerify.tasks';
 const productVerifyTask = new ProductVerifyTask();
 
 Given("Se abre la pagina {int} del producto", async (ref:number) => {
-    await productVerifyTask.open(ref);
+    productVerifyTask.open(ref);
 });
 
 When(/^Se hace una pausa para cargar los elementos$/, async () => {
